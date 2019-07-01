@@ -1,2 +1,2 @@
 hello ,jenkins
-this is Javed from devbranch.
+this is Javed from devbranch
