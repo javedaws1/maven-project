@@ -16,6 +16,7 @@ pipeline {
                 }
             }
 }
+}
     {
         stage ('test Stage') {
 
@@ -24,7 +25,7 @@ pipeline {
                     sh 'mvn test'
                 }
             }
-        }
+}
 }
     {
         stage ('package Stage') {
@@ -34,7 +35,6 @@ pipeline {
                     sh 'mvn package'
                 }
             }
-          }
 }
 }
 }
