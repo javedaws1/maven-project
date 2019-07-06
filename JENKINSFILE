@@ -1,0 +1,17 @@
+ pipeline {
+     agent any
+     stages {
+       stage('CLONE FROM GIT') {
+         git 'https://github.com/javedaws1/maven-project'
+         }
+       stage('COMPILE') {
+         steps {
+           withMaven(mave : 'LocalMaven' {
+             sh 'mvn compile'
+             }
+             }
+             }
+             }
+             }
+         
+         
