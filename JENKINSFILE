@@ -3,15 +3,15 @@
      stages {
        stage('CLONE FROM GIT') {
          git 'https://github.com/javedaws1/maven-project'
-         }
+       }
        stage('COMPILE') {
          steps {
            withMaven(mave : 'JenkinsLocalMaven' {
              sh 'mvn compile'
-             }
-             }
-             }
-             }
-             }
+         }
+       }
+     }
+    }
+  }
          
          
