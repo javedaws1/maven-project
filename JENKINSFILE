@@ -6,7 +6,7 @@
          }
        stage('COMPILE') {
          steps {
-           withMaven(mave : 'LocalMaven' {
+           withMaven(mave : 'JenkinsLocalMaven' {
              sh 'mvn compile'
              }
              }
