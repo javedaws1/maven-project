@@ -38,6 +38,16 @@ pipeline {
 }
 }
     {
+        stage ('install Stage') {
+
+            steps {
+                withMaven(maven : 'JenkinsLocalMaven') {
+                    sh 'mvn install'
+                }
+            }
+}
+}
+    {
         stage ('deploy Stage') {
 
             steps {
