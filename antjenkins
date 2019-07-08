@@ -11,7 +11,7 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                withAnt(ant : 'ANT') {
+                withAnt(installation : 'ANT') {
                     sh 'ant clean compile'
                 }
             }
