@@ -12,7 +12,7 @@ pipeline {
 
             steps {
                 withAnt(installation : 'ANT') {
-                    sh 'ant clean compile'
+                    sh 'ant -f /usr/share/ant/build.xml clean compile'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
 
             steps {
                 withAnt(installation : 'ANT') {
-                    sh 'ant test'
+                    sh 'ant -f /usr/share/ant/build.xml test'
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
         stage ('Create War Stage') {
             steps {
                 withAnt(installation : 'ANT') {
-                    sh 'ant war'
+                    sh 'ant -f /usr/share/ant/build.xml war'
                 }
             }
         }               
