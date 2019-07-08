@@ -11,7 +11,7 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                withAnt(installation : 'ANT') {
+                withAnt(installation : 'ANT', jdk: 'JDK') {
                     sh 'ant -f /usr/share/ant/build.xml clean compile'
                 }
             }
@@ -19,7 +19,7 @@ pipeline {
 
         stage ('Create War Stage') {
             steps {
-                withAnt(installation : 'ANT') {
+                withAnt(installation : 'ANT', jdk: 'JDK') {
                     sh 'ant -f /usr/share/ant/build.xml war'
                 }
             }
