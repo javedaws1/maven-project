@@ -17,16 +17,6 @@ pipeline {
             }
         }
 
-        stage ('Testing Stage') {
-
-            steps {
-                withAnt(installation : 'ANT') {
-                    sh 'ant -f /usr/share/ant/build.xml test'
-                }
-            }
-        }
-
-
         stage ('Create War Stage') {
             steps {
                 withAnt(installation : 'ANT') {
