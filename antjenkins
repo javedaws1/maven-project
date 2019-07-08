@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+
+    stages {
+        stage('SCM Checkout'){
+          git 'https://github.com/prakashk0301/maven-project'
+        }
+  }
+    {
+        stage ('Compile Stage') {
+
+            steps {
+                withAnt(ant : 'ANT') {
+                    sh 'ant clean compile'
+                }
+            }
+        }
+
+        stage ('Testing Stage') {
+
+            steps {
+                withAnt(ant : 'ANT') {
+                    sh 'ant test'
+                }
+            }
+        }
+
+
+        stage ('Create War Stage') {
+            steps {
+                withAnt(ant : 'ANT') {
+                    sh 'ant war'
+                }
+            }
+        }               
+}
+}
