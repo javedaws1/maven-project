@@ -20,7 +20,7 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                withAnt(ant : 'ANT') {
+                withAnt(installation : 'ANT') {
                     sh 'ant test'
                 }
             }
@@ -29,7 +29,7 @@ pipeline {
 
         stage ('Create War Stage') {
             steps {
-                withAnt(ant : 'ANT') {
+                withAnt(installation : 'ANT') {
                     sh 'ant war'
                 }
             }
