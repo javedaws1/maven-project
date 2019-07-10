@@ -1,3 +1,5 @@
+apply plugin: 'war'
+apply plugin: 'java'
 task wrapper(type: Wrapper) {
      gradleVersion = 'Gradle 5.5'
      }
