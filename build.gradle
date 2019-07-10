@@ -6,3 +6,4 @@ version = '1.0'
 task wrapper(type: Wrapper) {
      gradleVersion = 'Gradle 5.5'
      }
+task war(type: war) { }
