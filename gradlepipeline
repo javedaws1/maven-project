@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+    stages {
+      stage('checkout'){
+	    steps {
+		  git url: ‘https://github.com/javedaws1/maven-project.git’ 
+		  }
+		}
+	  stage('compile') {
+	    steps {
+		  sh './gradlew compileJava'
+		  }
+        }
+	  stage('unit_test') {
+        steps {
+          sh './gradlew test'		
+		  }
+		}
+	  stage('package') {
+	    steps {
+		  sh './gradlew build'
+		  }
+		}
+      stage	('archive_artifact') {
+	    steps {
+		  archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
+          onlyIfSuccessful()
+   		  }
+		}
+  }    	
+}
