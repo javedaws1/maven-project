@@ -20,6 +20,7 @@ pipeline {
       }
       stage('compile') {
 	    steps {
+	          sh '${gradlepath}/gradle wrapper'
 		  sh '${gradlepath}/gradlew compileJava'
 	    }
       }
