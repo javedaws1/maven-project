@@ -3,7 +3,7 @@ pipeline {
     stages {
       stage('checkout'){
 	    steps {
-		  git url: ‘https://github.com/javedaws1/maven-project.git’ 
+		  git url: 'https://github.com/javedaws1/maven-project.git'
 		  }
 		}
 	  stage('compile') {
