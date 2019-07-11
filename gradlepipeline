@@ -3,6 +3,7 @@ pipeline {
     tools {
       jdk 'JDK'
       gradle 'Gradle'
+      gradlepath = '/opt/gradle'
     }
     stages {
       stage('Print') {
@@ -17,7 +18,7 @@ pipeline {
       }
       stage('compile') {
 	    steps {
-		  sh '/opt/gradle/gradlew compileJava'
+		  sh '${gradlepath}/gradlew compileJava'
 	    }
       }
       stage('unit_test') {
