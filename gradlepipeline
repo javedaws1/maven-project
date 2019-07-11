@@ -1,12 +1,20 @@
 pipeline {
     agent any
+    def workspace = env.WORKSPACE
+    echo "workspace directory is ${workspace}"
     stages {
       stage('checkout'){
 	    steps {
 		  git url: 'https://github.com/javedaws1/maven-project.git'
 		  }
 		}
-	  stage('compile') {
+	  stage('init') {
+	    steps {
+	          tool name: 'gradle-5.5", type: gradle
+		  sh './gradlew compileJava'
+		  }
+        }
+          stage('compile') {
 	    steps {
 		  sh './gradlew compileJava'
 		  }
