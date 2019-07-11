@@ -7,7 +7,7 @@ pipeline {
     stages {
       stage('VarandPrint') {
         steps {
-          String gradlepath = '/opt/gradle'
+          String gradlepath = "/opt/gradle"
 	  echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} at workspace ${env.WORKSPACE}"
         }
       }
