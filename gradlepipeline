@@ -25,12 +25,12 @@ pipeline {
       }
       stage('unit_test') {
         steps {
-          sh './gradlew test'		
+          sh '${gradlepath}/gradlew test'		
 	}
       }
       stage('package') {
 	    steps {
-		  sh './gradlew build'
+		  sh '${gradlepath}/gradlew build'
 	    }
       }
       stage	('archive_artifact') {
