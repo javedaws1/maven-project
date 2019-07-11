@@ -1,6 +1,7 @@
 apply plugin:'java'
 apply plugin:'base'
 apply plugin:'war'
+apply plugin:'application'
 
 war {
 baseName = 'MyGradle'
@@ -9,5 +10,10 @@ version = '1.0'
 task wrapper(type: Wrapper) {
      gradleVersion = 'Gradle 5.5'
      }
-task clean{}     
+task clean{}    
+task compileJava {}
+task test {}
+task unit_test {}
+task package { }
 task war { }
+task archive_artifact {}
