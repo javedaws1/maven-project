@@ -1,15 +1,15 @@
 pipeline {
     agent any
-    environment {
-      def workspace = "${env.WORKSPACE}"
-      def curr_dir = "${PWD}"
-      echo "workspace directory is ${workspace} and directory is ${curr_dir}"
-    }
     tools {
       jdk 'JDK'
       gradle 'Gradle'
     }
     stages {
+      stage('Print') {
+        steps {
+          echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} at workspace ${env.WORKSPACE"
+        }
+      }
       stage('checkout'){
 	    steps {
 		  git url: 'https://github.com/javedaws1/maven-project.git'
