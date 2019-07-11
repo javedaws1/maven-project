@@ -1,7 +1,11 @@
 pipeline {
     agent any
-    def workspace = env.WORKSPACE
-    echo "workspace directory is ${workspace}"
+    tools {
+      jdk 'jdk8'
+      gradle 'gradle-5.5'
+    }
+    def workspace = ${env.WORKSPACE}
+    echo 'workspace directory is ${workspace}'
     stages {
       stage('checkout'){
 	    steps {
