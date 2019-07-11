@@ -1,9 +1,9 @@
 pipeline {
     agent any
+    gradlepath = '/opt/gradle'
     tools {
       jdk 'JDK'
       gradle 'Gradle'
-      gradlepath = '/opt/gradle'
     }
     stages {
       stage('Print') {
