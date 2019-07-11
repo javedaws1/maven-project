@@ -1,14 +1,14 @@
 pipeline {
     agent any
-    gradlepath = '/opt/gradle'
     tools {
       jdk 'JDK'
       gradle 'Gradle'
     }
     stages {
-      stage('Print') {
+      stage('VarandPrint') {
         steps {
-          echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} at workspace ${env.WORKSPACE}"
+          gradlepath = '/opt/gradle'
+	  echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} at workspace ${env.WORKSPACE}"
         }
       }
       stage('checkout'){
