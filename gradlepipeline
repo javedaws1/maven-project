@@ -7,7 +7,7 @@ pipeline {
     stages {
       stage('Print') {
         steps {
-          echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} at workspace ${env.WORKSPACE"
+          echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} at workspace ${env.WORKSPACE}"
         }
       }
       stage('checkout'){
