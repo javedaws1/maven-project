@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-      def workspace = ${env.WORKSPACE}
-      def curr_dir = ${PWD}
-      echo 'workspace directory is ${workspace} and directory is ${PWD}'
+      def workspace = "${env.WORKSPACE}"
+      def curr_dir = "${PWD}"
+      echo 'workspace directory is ${workspace} and directory is ${curr_dir}'
     }
     tools {
       jdk 'jdk8'
