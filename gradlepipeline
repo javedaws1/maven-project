@@ -17,8 +17,7 @@ pipeline {
       }
       stage('compile') {
 	    steps {
-		  sh 'cd /opt/gradle'
-		  sh './gradlew compileJava'
+		  sh '/opt/gradle/gradlew compileJava'
 	    }
       }
       stage('unit_test') {
