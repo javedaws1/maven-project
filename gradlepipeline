@@ -22,6 +22,7 @@ pipeline {
 	    steps {
 	          sh "cd '${env.WORKSPACE}'"
 	          sh 'rm -r *.gradle'
+		  sh '${gradlepath}/gradlew tasks' 
 		  sh '${gradlepath}/gradlew compileJava'
 	    }
       }
