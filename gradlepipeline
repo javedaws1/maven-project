@@ -4,7 +4,9 @@ pipeline {
       jdk 'JDK'
       gradle 'Gradle'
     }
-    def gradlepath = "/opt/gradle"
+    environment {
+      def gradlepath = "/opt/gradle"
+    }
     stages {
       stage('VarandPrint') {
         steps {
