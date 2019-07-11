@@ -3,7 +3,6 @@ pipeline {
     def workspace = env.WORKSPACE
     echo "workspace directory is ${workspace}"
     stages {
-#      tool name: 'gradle-5.5", type: gradle
       stage('checkout'){
 	    steps {
 		  git url: 'https://github.com/javedaws1/maven-project.git'
