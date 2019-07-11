@@ -4,10 +4,10 @@ pipeline {
       jdk 'JDK'
       gradle 'Gradle'
     }
+    def gradlepath = "/opt/gradle"
     stages {
       stage('VarandPrint') {
         steps {
-          String gradlepath = "/opt/gradle"
 	  echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} at workspace ${env.WORKSPACE}"
         }
       }
