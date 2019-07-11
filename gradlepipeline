@@ -23,7 +23,7 @@ pipeline {
 	          sh "cd '${env.WORKSPACE}'"
 	          sh 'rm -r *.gradle'
 		  sh '${gradlepath}/gradlew tasks --all' 
-		  sh '${gradlepath}/gradlew JDK'
+		  sh '${gradlepath}/gradlew compileJava'
 	    }
       }
       stage('unit_test') {
