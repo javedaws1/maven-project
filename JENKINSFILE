@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+
+    stages {
+        stage('SCM Checkout'){
+          git 'https://github.com/javedaws1/maven-project'
+        }
+  }
+    {
+        stage ('Compile Stage') {
+
+            steps {
+                withMaven(maven : 'JenkinsLocalMaven') {
+                    sh 'mvn clean compile'
+                }
+            }
+}
+}
+}
+
+         

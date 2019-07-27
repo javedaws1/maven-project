@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+
+    stages {
+        stage('SCM Checkout'){
+          git 'https://github.com/prakashk0301/maven-project'
+        }
+  }
+    {
+        stage ('Compile Stage') {
+
+            steps {
+                withAnt(installation : 'ANT', jdk: 'JDK') {
+                    sh 'ant -f /usr/share/ant/build.xml clean compile'
+                }
+            }
+        }
+
+        stage ('Create War Stage') {
+            steps {
+                withAnt(installation : 'ANT', jdk: 'JDK') {
+                    sh 'ant -f /usr/share/ant/build.xml war'
+                }
+            }
+        }               
+}
+}

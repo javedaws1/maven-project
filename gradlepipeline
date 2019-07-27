@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+    tools {
+      jdk 'JDK'
+      gradle 'Gradle'
+    }
+    environment {
+      def gradlepath = "/opt/gradle"
+    }
+    stages {
+      stage('VarandPrint') {
+        steps {
+	  echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL} at workspace ${env.WORKSPACE}"
+        }
+      }
+      stage('checkout'){
+	    steps {
+		  git url: 'https://github.com/javedaws1/maven-project.git'
+	    }
+      }
+      stage('compile') {
+	    steps {
+	          sh "cd '${env.WORKSPACE}'"
+	          sh 'rm -r *.gradle'
+		  sh '${gradlepath}/gradlew tasks --all'
+		  sh '${gradlepath}/gradlew'
+		  sh '${gradlepath}/gradlew init'
+		  sh '${gradlepath}/gradlew compileJava'
+	    }
+      }
+      stage('unit_test') {
+        steps {
+          sh '${gradlepath}/gradlew test'		
+	}
+      }
+      stage('package') {
+	    steps {
+		  sh '${gradlepath}/gradlew build'
+	    }
+      }
+      stage	('archive_artifact') {
+	    steps {
+		  archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
+                  onlyIfSuccessful()
+   	    }
+      }
+  }    	
+}
